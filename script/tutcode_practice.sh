@@ -6,6 +6,9 @@ kanji_log="" #出題した漢字の一覧
 positive_log="" #正解した漢字の一覧
 negative_log="" #不正解の漢字の一覧
 
+BASEDIR=$(cd $(dirname $0);pwd)
+log_dir=$BASEDIR"/../log"
+
 len=`grep '"[a-z]" "[a-z]" "[a-z]"' $problem | grep -v ";;" | wc -l | grep -o "[0-9]\+"`
 echo "$len個の漢字の中から出題されます。"
 
@@ -30,6 +33,6 @@ do
   fi
 done
 
-echo $kanji_log >> log/kanji_log.txt
-echo $positive_log >> log/positive_log.txt
-echo $negative_log >> log/negative_log.txt
+echo $kanji_log >> $log_dir/kanji_log.txt
+echo $positive_log >> $log_dir/positive_log.txt
+echo $negative_log >> $log_dir/negative_log.txt
