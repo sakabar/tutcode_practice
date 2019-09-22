@@ -23,7 +23,7 @@ do
   echo $kanji
   read input
   input_utf8=`echo $input | nkf -w`
-  if test $input_utf8 = $kanji; then
+  if [[ "$input_utf8" = $kanji ]]; then
     echo "OK"
     positive_log=$positive_log$kanji
   else
