@@ -9,7 +9,7 @@ negative_log="" #不正解の漢字の一覧
 BASEDIR=$(cd $(dirname $0);pwd)
 log_dir=$BASEDIR"/../log"
 
-len=`grep '"[a-z]" "[a-z]" "[a-z]"' $problem | grep -v ";;" | sort | uniq | wc -l | grep -o "[0-9]\+"`
+len=$(grep '"[a-z;,./]" "[a-z;,./]" "[a-z;,./]"' $problem | grep -v ";;" | sort | uniq | wc -l | grep -o "[0-9]\+")
 echo "$len個の漢字の中から出題されます。"
 
 for i in {1..$iter}
